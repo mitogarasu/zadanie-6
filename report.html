@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Задание 6. Оценка производительности интерфейса</title>
+<style>
+body { font: 15px/1.6 Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; color: #222 }
+h1 { font-size: 22px }
+h2 { font-size: 18px; margin-top: 30px }
+table { border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 14px }
+th, td { border: 1px solid #ccc; padding: 6px 9px; text-align: left }
+th { background: #f0f0f0 }
+.num { text-align: right }
+</style>
+</head>
+<body>
+
+<h1>Задание 6. Оценка производительности интерфейса</h1>
+
+<p>Сайт магазина Shophia из задания 4 выложен на GitHub Pages:
+<a href="https://mitogarasu.github.io/zadanie-6/">mitogarasu.github.io/zadanie-6</a>.
+Исходники: <a href="https://github.com/mitogarasu/zadanie-6">github.com/mitogarasu/zadanie-6</a>.</p>
+
+<p>Для замеров сделаны четыре копии сайта, они отличаются только подключением стилей.</p>
+
+<h2>Варианты</h2>
+<table>
+<tr><th>№</th><th>Вариант</th><th>Стили</th><th>Медиазапросы</th><th>Что грузит браузер</th><th>Страница</th></tr>
+<tr><td>1</td><td>десктоп, без препроцессора</td><td>готовый CSS</td><td>нет</td><td>style-desktop.css, 4.4 КБ</td><td><a href="desktop-css/">открыть</a></td></tr>
+<tr><td>2</td><td>адаптив, без препроцессора</td><td>готовый CSS</td><td>есть</td><td>style.css, 5.0 КБ</td><td><a href="adaptive-css/">открыть</a></td></tr>
+<tr><td>3</td><td>десктоп, с препроцессором</td><td>LESS в браузере</td><td>нет</td><td>less.min.js 155 КБ + style-desktop.less 4.3 КБ + _variables.less</td><td><a href="desktop-less/">открыть</a></td></tr>
+<tr><td>4</td><td>адаптив, с препроцессором</td><td>LESS в браузере</td><td>есть</td><td>less.min.js 155 КБ + style.less 4.8 КБ + _variables.less</td><td><a href="adaptive-less/">открыть</a></td></tr>
+</table>
+
+<p>Разметка во всех четырёх вариантах одинаковая, отличается только подключение стилей.
+Десктоп-версия это те же стили без двух медиазапросов (992 и 600 пикселей) и без meta viewport.
+Картинки общие, 1.7 МБ.</p>
+
+<h2>Как замерялось</h2>
+<p>Скрипт measure.js снимает три величины от начала навигации: DOMContentLoaded (DOM-дерево построено),
+load (загружены все ресурсы) и момент, когда к странице применились стили.</p>
+<p>Третья величина нужна потому, что при подключённом препроцессоре стили появляются уже после события load.
+В стилях у body задана переменная --styled, скрипт ждёт её появления.</p>
+<p>Каждый вариант загружался 12 раз в Chrome с пустым кешем, в таблице медиана.</p>
+
+<h2>Результаты</h2>
+<p>Медиана по 12 прогонам, миллисекунды:</p>
+<table>
+<tr><th>Вариант</th><th>DOMContentLoaded</th><th>Стили применены</th><th>load</th></tr>
+<tr><td>1. десктоп, без препроцессора</td><td class="num">563.5</td><td class="num">555.0</td><td class="num">1333.6</td></tr>
+<tr><td>2. адаптив, без препроцессора</td><td class="num">581.0</td><td class="num">573.5</td><td class="num">1394.0</td></tr>
+<tr><td>3. десктоп, с препроцессором</td><td class="num">590.8</td><td class="num">1013.7</td><td class="num">1526.3</td></tr>
+<tr><td>4. адаптив, с препроцессором</td><td class="num">525.8</td><td class="num">847.8</td><td class="num">1368.5</td></tr>
+</table>
+
+<h2>Все прогоны</h2>
+<p>В каждой паре столбцов: DOMContentLoaded и момент применения стилей.</p>
+<table>
+<tr><th rowspan="2">Прогон</th><th colspan="2">1. десктоп CSS</th><th colspan="2">2. адаптив CSS</th><th colspan="2">3. десктоп LESS</th><th colspan="2">4. адаптив LESS</th></tr>
+<tr><th>DCL</th><th>стили</th><th>DCL</th><th>стили</th><th>DCL</th><th>стили</th><th>DCL</th><th>стили</th></tr>
+<tr><td>1</td><td class="num">612.4</td><td class="num">604.3</td><td class="num">559.6</td><td class="num">551.5</td><td class="num">590.7</td><td class="num">954.8</td><td class="num">690.9</td><td class="num">1123.9</td></tr>
+<tr><td>2</td><td class="num">594.5</td><td class="num">585.0</td><td class="num">805.9</td><td class="num">798.0</td><td class="num">705.6</td><td class="num">1287.3</td><td class="num">494.1</td><td class="num">748.9</td></tr>
+<tr><td>3</td><td class="num">469.8</td><td class="num">461.7</td><td class="num">574.2</td><td class="num">563.8</td><td class="num">462.9</td><td class="num">782.3</td><td class="num">484.3</td><td class="num">670.6</td></tr>
+<tr><td>4</td><td class="num">541.1</td><td class="num">533.5</td><td class="num">577.6</td><td class="num">569.8</td><td class="num">1060.7</td><td class="num">1703.7</td><td class="num">690.0</td><td class="num">982.7</td></tr>
+<tr><td>5</td><td class="num">363.1</td><td class="num">355.3</td><td class="num">584.5</td><td class="num">577.2</td><td class="num">714.4</td><td class="num">920.6</td><td class="num">648.4</td><td class="num">999.0</td></tr>
+<tr><td>6</td><td class="num">850.4</td><td class="num">840.7</td><td class="num">433.5</td><td class="num">425.2</td><td class="num">383.9</td><td class="num">588.1</td><td class="num">362.0</td><td class="num">592.4</td></tr>
+<tr><td>7</td><td class="num">422.8</td><td class="num">414.9</td><td class="num">323.4</td><td class="num">315.5</td><td class="num">903.8</td><td class="num">1302.7</td><td class="num">525.0</td><td class="num">872.5</td></tr>
+<tr><td>8</td><td class="num">987.2</td><td class="num">979.4</td><td class="num">745.6</td><td class="num">737.4</td><td class="num">808.8</td><td class="num">1661.4</td><td class="num">412.1</td><td class="num">772.4</td></tr>
+<tr><td>9</td><td class="num">379.6</td><td class="num">371.3</td><td class="num">960.0</td><td class="num">949.9</td><td class="num">458.4</td><td class="num">716.9</td><td class="num">526.5</td><td class="num">932.4</td></tr>
+<tr><td>10</td><td class="num">350.9</td><td class="num">341.3</td><td class="num">322.7</td><td class="num">314.3</td><td class="num">526.9</td><td class="num">1173.7</td><td class="num">610.4</td><td class="num">1040.3</td></tr>
+<tr><td>11</td><td class="num">586.0</td><td class="num">576.5</td><td class="num">714.4</td><td class="num">704.4</td><td class="num">590.8</td><td class="num">931.0</td><td class="num">529.6</td><td class="num">823.1</td></tr>
+<tr><td>12</td><td class="num">688.1</td><td class="num">680.3</td><td class="num">989.4</td><td class="num">981.0</td><td class="num">500.5</td><td class="num">1072.6</td><td class="num">435.4</td><td class="num">670.7</td></tr>
+</table>
+
+<h2>Выводы</h2>
+<ul>
+<li>Мобильная версия на скорость не влияет. Медиазапросы добавляют к файлу стилей около 600 байт,
+разница между вариантами 1 и 2 порядка 18 мс, это меньше разброса между прогонами.</li>
+<li>Препроцессор в браузере задерживает отображение примерно на 275 мс. Вместо файла стилей в 5 КБ
+браузер качает библиотеку на 155 КБ, затем less-файл, затем файл переменных, и только потом компилирует.</li>
+<li>До конца компиляции страница видна без оформления. DOM-дерево строится одинаково быстро во всех
+вариантах, 526 до 591 мс, разметка везде одна.</li>
+<li>Препроцессор нужен при разработке. На рабочем сайте подключают готовый CSS, собранный через lessc.</li>
+</ul>
+
+<p>При заливке на GitHub Pages понадобился файл .nojekyll: без него не отдавался _variables.less
+и стили не применялись совсем.</p>
+
+</body>
+</html>

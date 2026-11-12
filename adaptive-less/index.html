@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shophia. Адаптив, LESS в браузере</title>
+  <meta name="description" content="Shophia fashion store: mid-season sale, hand picked and summer collection.">
+  <link rel="stylesheet/less" type="text/css" href="../less/style.less">
+  <script src="../js/less.min.js"></script>
+  <script src="../measure.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <img class="logo" src="../img/logo.png" width="200" height="79" alt="Shophia">
+    <nav>
+      <ul class="menu">
+        <li><a href="#picked">Home</a></li>
+        <li><a href="#picked">Gallery</a></li>
+        <li><a href="#collection">Categories</a></li>
+        <li><a href="#brands">Pages</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero__box">
+    <h1 class="hero__title">Mid-season sale</h1>
+    <p class="hero__text">up to 50% off</p>
+    <a class="btn" href="#collection">Shop now</a>
+  </div>
+</section>
+
+<section class="features">
+  <h2 class="visually-hidden">Advantages</h2>
+  <div class="container features__list">
+    <div class="feature">
+      <img src="../img/ic-ship.png" width="54" height="54" alt="">
+      <div>
+        <h3>Free shipping</h3>
+        <p>In order min $200</p>
+      </div>
+    </div>
+    <div class="feature feature--dark">
+      <img src="../img/ic-return.png" width="54" height="54" alt="">
+      <div>
+        <h3>30-days returns</h3>
+        <p>Money back guarantee</p>
+      </div>
+    </div>
+    <div class="feature">
+      <img src="../img/ic-support.png" width="54" height="54" alt="">
+      <div>
+        <h3>24/7 support</h3>
+        <p>Lifestyme support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="picked">
+  <div class="container">
+    <h2 class="title">HandPicked</h2>
+    <div class="picked">
+      <img src="../img/hp-boots.png" width="399" height="397" alt="Leather boots">
+      <img src="../img/hp-paris.png" width="460" height="815" alt="Paris Hilton collection">
+      <img src="../img/hp-necklace.png" width="400" height="397" alt="Necklace with 50% off">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="collection">
+  <div class="container">
+    <h2 class="title">Summer Collection</h2>
+    <ul class="products">
+      <li class="product">
+        <img src="../img/product-1.png" width="300" height="298" alt="Black shirt">
+        <span class="product__cart">+ Add to cart</span>
+      </li>
+      <li class="product">
+        <img src="../img/product-2.png" width="300" height="298" alt="Leather jacket">
+        <span class="product__cart">+ Add to cart</span>
+      </li>
+      <li class="product">
+        <img src="../img/product-3.png" width="300" height="298" alt="Checked poncho">
+        <span class="product__cart">+ Add to cart</span>
+      </li>
+      <li class="product">
+        <img src="../img/product-4.png" width="300" height="298" alt="Brown coat">
+        <span class="product__cart">+ Add to cart</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="brands">
+  <div class="container">
+    <h2 class="title">Our Brand</h2>
+    <ul class="brands">
+      <li><img src="../img/brand-1.png" width="170" height="110" alt="Bakery"></li>
+      <li><img src="../img/brand-2.png" width="170" height="110" alt="Cavalier"></li>
+      <li><img src="../img/brand-3.png" width="170" height="110" alt="Harvest Co"></li>
+      <li><img src="../img/brand-4.png" width="170" height="110" alt="Landlock"></li>
+    </ul>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <h2 class="title title--light">Customers Says</h2>
+    <div class="reviews__list">
+      <div class="review">
+        <img src="../img/person-1.png" width="200" height="330" alt="">
+        <div>
+          <p class="review__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p class="review__name">Sandra Dewi</p>
+          <p class="review__role">Fashion stylist</p>
+        </div>
+      </div>
+      <div class="review">
+        <img src="../img/person-2.png" width="200" height="330" alt="">
+        <div>
+          <p class="review__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p class="review__name">Shaheer Sheikh</p>
+          <p class="review__role">Designer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h2>Shops</h2>
+      <ul>
+        <li><a href="#collection">New In</a></li>
+        <li><a href="#collection">Women</a></li>
+        <li><a href="#collection">Men</a></li>
+        <li><a href="#collection">Shoes</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h2>Information</h2>
+      <ul>
+        <li><a href="#picked">About us</a></li>
+        <li><a href="#picked">Customer service</a></li>
+        <li><a href="#brands">Manufacturers</a></li>
+        <li><a href="#picked">Privacy policy</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h2>Stay connected</h2>
+      <form class="subscribe" action="#" method="post">
+        <label class="visually-hidden" for="mail">Email</label>
+        <input id="mail" type="email" name="mail" placeholder="Enter Your Email Address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <p class="footer__copy">© 2015 Shophia Fashion Store. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  --styled: 1;
+  margin: 0;
+  font: 14px/1.6 Arial, Helvetica, sans-serif;
+  color: #585858;
+}
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+}
+a {
+  color: #f09d66;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.title {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-style: italic;
+  text-align: center;
+  color: #141414;
+}
+.title--light {
+  color: #fff;
+}
+.btn {
+  display: inline-block;
+  padding: 14px 34px;
+  background: #f09d66;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #eb7f38;
+}
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+}
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+.menu a {
+  color: #585858;
+  text-decoration: none;
+}
+.menu a:hover {
+  color: #f09d66;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+  padding: 30px 15px;
+  background: url("../img/hero.png") center / cover no-repeat;
+  text-align: center;
+}
+.hero__box {
+  padding: 30px;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.25);
+}
+.hero__title {
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #141414;
+}
+.hero__text {
+  margin: 10px 0 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.features {
+  padding: 40px 0;
+}
+.features__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.feature {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1 1 250px;
+  gap: 15px;
+  padding: 20px;
+  background: #d9bf8f;
+  color: #fff;
+}
+.feature--dark {
+  background: #141414;
+}
+.feature h3 {
+  font-size: 18px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.feature p {
+  font-size: 12px;
+}
+.section {
+  padding: 40px 0;
+}
+.picked {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.picked img {
+  flex: 1 1 300px;
+  height: 320px;
+  object-fit: cover;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+.product {
+  position: relative;
+  flex: 1 1 250px;
+}
+.product img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+.product__cart {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.product:hover .product__cart {
+  background: #f09d66;
+}
+.brands {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+.reviews {
+  padding: 40px 0;
+  background: #d9bf8f;
+}
+.reviews__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.review {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex: 1 1 400px;
+  gap: 15px;
+}
+.review img {
+  width: 150px;
+}
+.review__text {
+  font-style: italic;
+  color: #fff;
+}
+.review__name {
+  margin-top: 10px;
+  font-size: 22px;
+  font-style: italic;
+  color: #141414;
+}
+.review__role {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.footer {
+  padding: 40px 0 20px;
+  background: #141414;
+  color: #9a9a9a;
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer__col {
+  flex: 1 1 200px;
+}
+.footer__col h2 {
+  margin-bottom: 15px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.footer__col ul {
+  list-style: none;
+  padding: 0;
+}
+.footer__col li {
+  margin-bottom: 8px;
+}
+.footer__col a {
+  color: #9a9a9a;
+  text-decoration: none;
+}
+.footer__col a:hover {
+  color: #f09d66;
+}
+.footer__copy {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #2e2e2e;
+  font-size: 12px;
+  text-align: center;
+}
+.subscribe {
+  display: flex;
+}
+.subscribe input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #2e2e2e;
+  background: #232323;
+  color: #9a9a9a;
+}
+.subscribe button {
+  padding: 10px 18px;
+  border: 0;
+  background: #f09d66;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
